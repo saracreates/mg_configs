@@ -1,0 +1,12 @@
+define l = e+ e- mu+ mu- ta- ta+
+generate e+ e- > l l z z
+output /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_llZZ/
+
+launch /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_llZZ/ -n run_0
+set ebeam1 120
+set ebeam2 120
+set nevents 100000
+set mmll 5
+set maxjetflavor 5
+set etal 3.68867
+done 
