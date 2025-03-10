@@ -1,8 +1,7 @@
 ! 1) Settings used in the main program.
 
 Main:numberOfEvents = 100000         ! number of events to generate
-Main:timesAllowErrors = 150          ! how many aborts before run stops (I sometimes get `fastjet::Error:  Requested 2 exclusive jets, but there were only 0 particles in the event`, every 1k events or so)
-
+Main:timesAllowErrors = 150          ! how many aborts before run stops (Problem: `fastjet::Error:  Requested 2 exclusive jets, but there were only 0 particles in the event`)
 ! 2) Settings related to output in init(), next() and stat().
 
 Init:showChangedSettings = on      ! list changed settings
@@ -23,9 +22,5 @@ Beams:sigmaVertexZ = 0.64      !  0.64 mm
 
 Beams:frameType = 4 ! Reads info of beam parameters from LHE file
 !Beams:LHEF = examples/Pythia8/events.lhe
-Beams:LHEF = /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_llZZ/Events/run_0/unweighted_events.lhe  ! LHE file for ee_llZZ events
+Beams:LHEF = /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_Hgamma/Events/run_0/unweighted_events.lhe  ! LHE file for ee_llZZ events
 
-! Allow the Z decay ONLY into e, mu, tau
-
-23:onMode = off
-23:onIfAny = 11 -11 13 -13 -15 15
