@@ -1,0 +1,12 @@
+generate e+ e- > e+ e- h
+output /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_eeH_no_cuts/
+
+launch /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_eeH_no_cuts/ -n run_0
+set pdlabel fcce240ll
+set lpp1 -3 
+set lpp2 +3 
+set ebeam1 120
+set ebeam2 120
+
+set nevents 1000
+done 
