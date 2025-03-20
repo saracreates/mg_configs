@@ -1,0 +1,24 @@
+import model sm-lepton_masses
+
+define l = e+ e- mu+ mu- ta- ta+
+define j = g u c d s b u~ c~ d~ s~ b~
+
+generate e+ e- > j j z z $z /h,  z > l l
+
+output /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_jjZZ_Zll/
+
+launch /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_jjZZ_Zll/ -n run_0
+set pdlabel fcce240ll
+set lpp1 -3 
+set lpp2 +3 
+set ebeam1 120
+set ebeam2 120
+
+set nevents 1000000
+set mmll 5
+set maxjetflavor 5
+set etal 3.68867
+
+set cut_decays True
+
+done 
