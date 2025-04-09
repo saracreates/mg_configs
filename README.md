@@ -4,6 +4,8 @@ We want to so some fancy FCC anlaysis! Normally we use whizard for event generat
 
 ## 1. Create `.lhe` files with MadGraph
 
+(! `mg5_aMC` is included in the `key4hep` stack, so consider using that instead of the procedure described here!)
+
 - install MadGraph locally by downloading it from [here](https://launchpad.net/mg5amcnlo).
 - then go into the folder and launch Madgraph with `.bin/mg5_aMC` and providing a config file like the ones found in the `madgraph_configs` in this repo!
 
@@ -15,7 +17,7 @@ cd /afs/cern.ch/work/s/saaumill/public/MG5_aMC_v3_5_7
 ```
 
 
-## 2. Use pythia and delphes
+## 2a. Use pythia and delphes (fast sim)
 
 We use the `DelphesPythia8_EDM4HEP` module from the key4hep software stack to propagate our `.lhe` files through pythia, then delphes to then get an edm4hep output. The config files for this step can be found in the `pythia_to_delphes_to_edm4hep` folder! 
 
@@ -29,10 +31,22 @@ cd /afs/cern.ch/work/s/saaumill/public/mg_configs/pythia_to_delphes_to_edm4hep
 DelphesPythia8_EDM4HEP \
 	card_IDEA.tcl \
 	edm4hep_IDEA.tcl \
-	p8_ee_llZZ_ecm240.cmd \
-	p8_ee_llZZ_ecm240_edm4hep.root 
+	p8_ee_Hgamma_ecm240.cmd \
+	p8_ee_Hgamma_ecm240.root 
 
 ```
+
+## 2b. Use `k4run` for pythia (full sim)
+
+For full sim samples, we want to
+
+1. Apply pythia8 and get edm4hep files outputs
+
+	We need an option file for `k4run`, see `./k4run_for_fullim/config_run_pythia8.py`. I have adapted this from this [example config](https://github.com/HEP-FCC/k4Gen/blob/main/k4Gen/options/pythia.py). I adapted the path of the pythia config to point to a pythia config similar to the fast sim one but that we removed the vertex infomation. Additionally, we need to *turn off vertex smearing* in the `config_run_pythia8.py` too because it is done in `ddsim` now. 
+
+2. Apply detector simulation with `ddsim`
+3. Run reconstruction 
+
 
 # Resources: 
 - [MadGraph tutorial](https://twiki.cern.ch/twiki/bin/view/CMSPublic/MadgraphTutorial)
