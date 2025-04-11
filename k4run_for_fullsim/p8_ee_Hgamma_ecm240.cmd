@@ -19,6 +19,3 @@ Beams:allowVertexSpread = off
 Beams:frameType = 4 ! Reads info of beam parameters from LHE file
 Beams:LHEF = /afs/cern.ch/work/s/saaumill/public/tmp_madgraph_output/ee_Hgamma/Events/run_0/unweighted_events.lhe  ! LHE file for ee_llZZ events
 
-! 4) Debug? 
-
-SLHA:minMassSM = 100.00000
