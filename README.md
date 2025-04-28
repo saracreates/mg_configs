@@ -54,7 +54,7 @@ For full sim samples, we want to
 	k4run config_run_pythia8.py
 	```
 
-	This will produce a `.root` file. (At the moment, then can not be processed with `ddsim` in the next step... but should work in the future)
+	This will produce a `.root` file. (At the moment, they can not be processed with `ddsim` in the next step (because the `.root` input is only available on the nightlies for now but we need the latest stabel release for ddsim)... but should work in the future)
 
 
 	**Alternative solution**
@@ -87,9 +87,11 @@ For full sim samples, we want to
 
 2. Apply detector simulation with `ddsim`
 
-	We run CLD (or any detector that might be available in the future) full simulation with [ddsim](https://fcc-ee-detector-full-sim.docs.cern.ch/CLD/) (source latest stable key4hep beforehand like shown above):
+	We run CLD (or any detector that might be available in the future) full simulation with [ddsim](https://fcc-ee-detector-full-sim.docs.cern.ch/CLD/):
 
 	```
+	source /cvmfs/sw.hsf.org/key4hep/setup.sh 
+
 	ddsim --inputFiles /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/pythia8_higgsgamma.hepmc -N 75000 \
 	--steeringFile $CLDCONFIG/share/CLDConfig/cld_steer.py \
 	--compactFile $K4GEO/FCCee/CLD/compact/CLD_o2_v05/CLD_o2_v05.xml \
@@ -98,9 +100,13 @@ For full sim samples, we want to
 
 	As for my example this takes quite long, I have written a [HTCondor](https://batchdocs.web.cern.ch/local/quick.html) submit file in `condor_submit`. 
 
+	- To write the `ddsim.sub` file, run `python3 write_ddsim.py` (and adjust `write_ddsim.py` to your needs)
+	- Adjust `submit_ddsim.sh` (input file, detector version etc)
+	- start the job with `condor_submit ddsim.sub`
+
 3. Run reconstruction 
 
-	Then, we need to run the CLD reconstruction. Find a documentation about it [here](https://fcc-ee-detector-full-sim.docs.cern.ch/CLD/). We can run it with: 
+	Then, we need to run the CLD reconstruction. Find the documentation about it [here](https://fcc-ee-detector-full-sim.docs.cern.ch/CLD/). We can run it with: 
 
 	```
 	k4run CLDReconstruction.py --inputFiles /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma.root --outputBasename reco_higgsgamma -n 75000 --enableLCFIJet
@@ -108,7 +114,9 @@ For full sim samples, we want to
 	
 	- the CLDReconstruction.py can be found [here](https://github.com/key4hep/CLDConfig/blob/main/CLDConfig/CLDReconstruction.py). 
 	- the `--enableLCFIJet` option is set to perform jet clustering. 
-	
+
+	As this step might also take a while, you can find condor submission scripts in `condor_submit`. Use them in analogy to the ddsim submission. 
+
 
 
 **Comments** 

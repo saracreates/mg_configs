@@ -1,0 +1,70 @@
+# run commands for analysis,
+
+# here goes your shell script
+executable    = submit_ddsim.sh
+#requirements = (OpSysAndVer =?= "CentOS7")
+# here you specify where to put .log, .out and .err files
+output                = /afs/cern.ch/work/s/saaumill/public/condor/std-reco/job.$(ClusterId).$(ProcId).out
+error                 = /afs/cern.ch/work/s/saaumill/public/condor/std-reco/job.$(ClusterId).$(ProcId).err
+log                   = /afs/cern.ch/work/s/saaumill/public/condor/std-reco/job.$(ClusterId).$(ClusterId).log
+
++AccountingGroup = "group_u_FCC.local_gen"
++JobFlavour    = "workday"
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_0.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_0.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_10.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_1.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_13.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_2.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_15.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_3.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_17.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_4.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_18.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_5.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_19.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_6.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_21.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_7.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_24.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_8.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_26.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_9.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_27.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_10.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_28.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_11.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_29.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_12.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_33.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_13.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_34.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_14.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_36.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_15.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_38.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_16.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_4.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_17.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_40.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_18.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_42.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_19.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_43.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_20.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_44.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_21.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_45.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_22.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_48.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_23.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_51.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_24.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_53.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_25.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_7.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_26.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_8.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_27.root"
+queue
+arguments="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/ddsim_higgsgamma_9.root /afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/reco_higgsgamma/reco_higgsgamma_28.root"
+queue

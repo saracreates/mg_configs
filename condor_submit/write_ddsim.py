@@ -2,7 +2,7 @@ import math
 
 def generate_analysis_sub():
     num_events = 1400 # this take a bit more than 3h
-    max_events = 750000
+    max_events = 75000 
     # input_file = "/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/pythia8_higgsgamma.hepmc"
     output_base = "/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/"
     
@@ -10,7 +10,7 @@ def generate_analysis_sub():
     header = """# run commands for analysis,
 
 # here goes your shell script
-executable    = submitAnalysisJob.sh
+executable    = submit_ddsim.sh
 #requirements = (OpSysAndVer =?= "CentOS7")
 # here you specify where to put .log, .out and .err files
 output                = /afs/cern.ch/work/s/saaumill/public/condor/std-ddsim/job.$(ClusterId).$(ProcId).out
@@ -35,7 +35,7 @@ log                   = /afs/cern.ch/work/s/saaumill/public/condor/std-ddsim/job
         i += num_events
 
     # Write to the analysis.sub file
-    with open("analysis.sub", "w") as file:
+    with open("ddsim.sub", "w") as file:
         file.write(header)
         file.write(content)
 

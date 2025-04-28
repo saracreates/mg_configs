@@ -8,30 +8,26 @@ start_time=$(date +%s)
 source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-01-28
 
 # get input parameters 
-FROM_I=${1} # Which index to start with regarding the input root files
-NUM_FILES=${2} # number of files to process
-OUTPUT_FILE=${3} # output file
-
-# input files 
-
+INPUT_FILE=${1} # Which index to start with regarding the input root files
+OUTPUT_FILE=${2} # output file
 
 # make directory
 mkdir -p job
 
 # copy input files
-input_file="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/pythia8_higgsgamma.hepmc"
-base_name=$(basename "${input_file}")
+base_name=$(basename "${INPUT_FILE}")
 # Copy the file using the Python script
-python3 /afs/cern.ch/work/f/fccsw/public/FCCutils/eoscopy.py "${input_file}" "./job/${base_name}"
+python3 /afs/cern.ch/work/f/fccsw/public/FCCutils/eoscopy.py "${INPUT_FILE}" "./job/${base_name}"
 
 # run the script
 echo "time before running script: $middle_time seconds" 
-ddsim --inputFiles ./job/${base_name} \
-  -N ${NUM_FILES} \
-  --skipNEvents ${FROM_I} \
-	--steeringFile $CLDCONFIG/share/CLDConfig/cld_steer.py \
-	--compactFile $K4GEO/FCCee/CLD/compact/CLD_o2_v05/CLD_o2_v05.xml \
-	--outputFile ./job/out.root
+
+# each input file has 1400 events ...
+k4run CLDReconstruction.py --inputFiles ./job/${base_name} \
+ --outputFile ./job/out \
+ -n 1400 \
+ --enableLCFIJet
+
 echo "job done ... "
 job_endtime=$(date +%s)
 
@@ -42,7 +38,7 @@ if [ ! -d ${output_dir} ]; then
 fi
 
 # copy file to output dir
-python3 /afs/cern.ch/work/f/fccsw/public/FCCutils/eoscopy.py ./job/out.root ${OUTPUT_FILE}
+python3 /afs/cern.ch/work/f/fccsw/public/FCCutils/eoscopy.py ./job/out_REC.edm4hep.root ${OUTPUT_FILE}
 echo "Ran script successfully!"
 end_time=$(date +%s)
 execution_time=$((end_time - start_time)) # rouhgly 2h for index 0 to 1000
