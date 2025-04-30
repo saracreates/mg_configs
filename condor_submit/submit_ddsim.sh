@@ -19,7 +19,7 @@ OUTPUT_FILE=${3} # output file
 mkdir -p job
 
 # copy input files
-input_file="/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/pythia8_higgsgamma.hepmc" # CHANGE input file here
+input_file="/eos/user/s/saaumill/Hgamma_fullsim_data/pythia8_higgsgamma.hepmc" # CHANGE input file here
 base_name=$(basename "${input_file}")
 # Copy the file using the Python script
 python3 /afs/cern.ch/work/f/fccsw/public/FCCutils/eoscopy.py "${input_file}" "./job/${base_name}"

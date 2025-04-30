@@ -1,10 +1,9 @@
 import math
 
 def generate_analysis_sub():
-    num_events = 1400 # this take a bit more than 3h
+    num_events = 700 # 1400 take a bit more than 3h
     max_events = 75000 
-    # input_file = "/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/pythia8_higgsgamma.hepmc"
-    output_base = "/afs/cern.ch/work/s/saaumill/public/tmp_fullsim_output/ddsim_higgsgamma/"
+    output_base = "/eos/user/s/saaumill/Hgamma_fullsim_data/ddsim_higgsgamma/"
     
     # Prepare the header of the file
     header = """# run commands for analysis,
